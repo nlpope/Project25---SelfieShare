@@ -7,13 +7,28 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController {
+class ViewController: UICollectionViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
+{
+    
+    var images  = [UIImage]()
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupNavigation()
+    }
+    
+    
+    private func setupNavigation()
+    {
+        title                               = "Selfie Share"
+        navigationItem.rightBarButtonItem   = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
     }
 
 
+    @objc func importPicture()
+    {
+        
+    }
 }
 
