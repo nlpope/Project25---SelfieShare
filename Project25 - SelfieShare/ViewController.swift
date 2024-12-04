@@ -32,3 +32,19 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     }
 }
 
+
+// MARK: COLLECTIONVIEW DELEGATE METHODS
+extension ViewController
+{
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { return images.count }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell            = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifiers.ImageView, for: indexPath)
+        
+        if let imageView    = cell.viewWithTag(1000) as? UIImageView { imageView.image = images[indexPath.item] }
+        
+        return cell 
+    }
+}
+
