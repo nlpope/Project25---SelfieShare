@@ -40,9 +40,11 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     {
         let ac      = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Host a session", style: .default, handler: startHosting)
-        let action2 = UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+        let action2 = UIAlertAction(title: "Join a session", style: .default, handler: joinSession)
+        let action3 = UIAlertAction(title: "Cancel", style: .cancel)
         
-        ac.addActions([action1, action2])
+        ac.addActions([action1, action2, action3])
+        present(ac, animated: true)
     }
     
     
