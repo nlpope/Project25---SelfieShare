@@ -28,7 +28,10 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
 
     @objc func importPicture()
     {
-        
+        let picker              = UIImagePickerController()
+        picker.allowsEditing    = true
+        picker.delegate         = self
+        present(picker, animated: true)
     }
 }
 
@@ -44,7 +47,19 @@ extension ViewController
         
         if let imageView    = cell.viewWithTag(1000) as? UIImageView { imageView.image = images[indexPath.item] }
         
-        return cell 
+        return cell
+    }
+}
+
+
+// MARK: IMAGE PICKER DELEGATE METHODS
+extension ViewController
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        dismiss(animated: true)
+        images.insert(image, at: 0)
+        collectionView.reloadData()
     }
 }
 
