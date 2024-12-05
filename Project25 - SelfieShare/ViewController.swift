@@ -23,6 +23,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     {
         title                               = "Selfie Share"
         navigationItem.rightBarButtonItem   = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
+        navigationItem.leftBarButtonItem    = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
     }
 
 
@@ -32,6 +33,28 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         picker.allowsEditing    = true
         picker.delegate         = self
         present(picker, animated: true)
+    }
+    
+    
+    @objc func showConnectionPrompt()
+    {
+        let ac      = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Host a session", style: .default, handler: startHosting)
+        let action2 = UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+        
+        ac.addActions([action1, action2])
+    }
+    
+    
+    func startHosting(_ : UIAlertAction)
+    {
+        
+    }
+    
+    
+    func joinSession(_ : UIAlertAction)
+    {
+        
     }
 }
 
@@ -55,7 +78,8 @@ extension ViewController
 // MARK: IMAGE PICKER DELEGATE METHODS
 extension ViewController
 {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+    {
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true)
         images.insert(image, at: 0)
