@@ -109,7 +109,7 @@ extension ViewController
         {
             if let imageData    = image.pngData()
             {
-                // triggers didReceive data, fromPeer method
+                // triggers MCDelegate's didReceive data, fromPeer method
                 do { try mcSession.send(imageData, toPeers: mcSession.connectedPeers, with: .reliable) }
                 catch { presentSSAlertOnMainThread(alertTitle: "Send error", buttonTitle: "OK", error: error) }
             }
