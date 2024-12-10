@@ -12,7 +12,7 @@ enum ReuseIdentifiers
     static let ImageView    = "ImageView"
 }
 
-enum DescriptionKeys
+enum ServiceTypes
 {
     static let hws          = "hws-project25"
 }

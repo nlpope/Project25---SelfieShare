@@ -18,6 +18,7 @@ class HomeVC:   UICollectionViewController,
     var images  = [UIImage]()
     var peerID  = MCPeerID(displayName: UIDevice.current.name)
     var mcSession: MCSession?
+//    var mcAdvertiserAssistant: MCNearbyServiceAdvertiser?
     var mcAdvertiserAssistant: MCAdvertiserAssistant?
 
     override func viewDidLoad()
@@ -67,7 +68,8 @@ class HomeVC:   UICollectionViewController,
     func startHosting(action: UIAlertAction)
     {
         guard let mcSession     = mcSession else { return }
-        mcAdvertiserAssistant   = MCAdvertiserAssistant(serviceType: DescriptionKeys.hws, discoveryInfo: nil, session: mcSession)
+//        mcAdvertiserAssistant   = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: ServiceTypes.hws)
+        mcAdvertiserAssistant   = MCAdvertiserAssistant(serviceType: ServiceTypes.hws, discoveryInfo: nil, session: mcSession)
         mcAdvertiserAssistant?.start()
     }
     
@@ -75,7 +77,7 @@ class HomeVC:   UICollectionViewController,
     func joinSession(action: UIAlertAction)
     {
         guard let mcSession = mcSession else { return }
-        let mcBrowser       = MCBrowserViewController(serviceType: DescriptionKeys.hws, session: mcSession)
+        let mcBrowser       = MCBrowserViewController(serviceType: ServiceTypes.hws, session: mcSession)
         mcBrowser.delegate  = self
         present(mcBrowser, animated: true)
     }
@@ -119,18 +121,15 @@ extension HomeVC
             }
         }
     }
-}
-
-
-// MARK: MULTICONNECTIVITY DELEGATE METHODS
-extension HomeVC
-{
+    
+    
     func session(_ session: MCSession,
                  didReceive stream: InputStream,
                  withName streamName: String,
                  fromPeer peerID: MCPeerID) { }
     
     
+    // triggered by mcSession.send() in ...didFinishPickingMediaWithInfo method
     func session(_ session: MCSession,
                  didReceive data: Data,
                  fromPeer peerID: MCPeerID)
@@ -145,6 +144,7 @@ extension HomeVC
     }
     
     
+    // MARK: MULTICONNECTIVITY DELEGATE METHODS
     func session(_ session: MCSession,
                  didStartReceivingResourceWithName resourceName: String,
                  fromPeer peerID: MCPeerID,
