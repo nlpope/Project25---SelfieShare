@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  Project25 - SelfieShare
 //
 //  Created by Noah Pope on 12/3/24.
@@ -8,7 +8,11 @@
 import UIKit
 import MultipeerConnectivity
 
-class ViewController: UICollectionViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate
+class HomeVC:   UICollectionViewController,
+                UINavigationControllerDelegate,
+                UIImagePickerControllerDelegate,
+                MCSessionDelegate,
+                MCBrowserViewControllerDelegate
 {
     
     var images  = [UIImage]()
@@ -79,7 +83,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
 
 
 // MARK: COLLECTIONVIEW DELEGATE METHODS
-extension ViewController
+extension HomeVC
 {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { return images.count }
     
@@ -95,7 +99,7 @@ extension ViewController
 
 
 // MARK: IMAGE PICKER DELEGATE METHODS
-extension ViewController
+extension HomeVC
 {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
     {
@@ -119,7 +123,7 @@ extension ViewController
 
 
 // MARK: MULTICONNECTIVITY DELEGATE METHODS
-extension ViewController
+extension HomeVC
 {
     func session(_ session: MCSession,
                  didReceive stream: InputStream,

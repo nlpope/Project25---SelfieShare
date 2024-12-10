@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="4CA-4l-sDv">
             <objects>
-                <collectionViewController id="gB8-fA-KGm" customClass="ViewController" customModule="Project25___SelfieShare" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="gB8-fA-KGm" customClass="HomeVC" customModule="Project25___SelfieShare" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DV7-mq-qIs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +55,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ocb-fC-vSg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IGp-Qa-F6C">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
