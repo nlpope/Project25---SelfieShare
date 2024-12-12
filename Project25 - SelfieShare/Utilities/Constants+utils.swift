@@ -14,5 +14,5 @@ enum ReuseIdentifiers
 
 enum ServiceTypes
 {
-    static let hws          = "hws-project25"
+    static let ps          = "ps-project25"
 }
