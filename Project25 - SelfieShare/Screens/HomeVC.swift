@@ -3,9 +3,8 @@
 //  Project25 - SelfieShare
 //
 //  Created by Noah Pope on 12/3/24.
-//
+//  MCAdvertiser & Browser help: https://stackoverflow.com/questions/58563621/multipeer-connectivity-not-working-after-xcode-11-update
 
-// MCAdvertiser & Browser help: https://stackoverflow.com/questions/58563621/multipeer-connectivity-not-working-after-xcode-11-update
 import UIKit
 import MultipeerConnectivity
 
@@ -45,7 +44,8 @@ class HomeVC:   UICollectionViewController,
     }
 
 
-    @objc func importPicture()
+    @objc
+    func importPicture()
     {
         let picker              = UIImagePickerController()
         picker.allowsEditing    = true
@@ -54,7 +54,8 @@ class HomeVC:   UICollectionViewController,
     }
     
     
-    @objc func showConnectionPrompt()
+    @objc
+    func showConnectionPrompt()
     {
         let ac      = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Host a session", style: .default, handler: startHosting)
